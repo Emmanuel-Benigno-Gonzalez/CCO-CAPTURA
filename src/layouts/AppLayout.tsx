@@ -1,0 +1,40 @@
+import { Outlet, Link } from 'react-router-dom'
+import NavMenu from '../components/NavMenu'
+
+export default function AppLayout() {
+    return (
+        <>
+            <header>
+                <div className='max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-evenly items-center'>
+                    <h1 className="titulo">SACO</h1>
+                    <NavMenu />
+                </div>
+            </header>
+
+            <div className="nav-bg">
+                <nav className="navegacion-principal contenedor">
+                    <Link
+                        to='/'
+                    >Registrar</Link>
+                    <Link
+                        to='/operations/consult'
+                    >Consultar</Link>
+                    <Link
+                        to='/operations/edit'
+                    >Editar</Link>
+                </nav>
+            </div>
+    
+            <main className="contenedor sombra">
+                <Outlet/>
+            </main>
+
+            <footer className="bg-black mt-5 py-5">
+                <div className="container-xl">
+                    <p className="text-white text-center fs-4 mt-4 m-md-0">AIT - Todos los derechos Reservados</p>
+                </div>
+            </footer>
+        </>
+
+    )
+}
